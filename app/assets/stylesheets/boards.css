@@ -1,0 +1,9 @@
+.board{
+  border: 1px solid;
+  width: 40%;
+  margin-top: 30px;
+}
+
+.board-date{
+  color: gray;
+}

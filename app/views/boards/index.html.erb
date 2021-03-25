@@ -1,0 +1,24 @@
+<div class='nav'>
+    <ul class='lists-right'>
+      <% if user_signed_in? %>
+      <li><%= link_to current_user.nickname, "#", class: "user-nickname"%> </li> 
+      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+      <%else%>
+      <li><%= link_to 'ログイン',  new_user_session_path, class: "login" %></li>
+      <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+      <% end %>
+    </ul>
+  </div>
+
+<h1>トップページ</h1>
+<%= link_to '新規投稿', new_board_path, class:"board-new-btn" %>
+<% @boards.each do |board| %>
+ <div class="board">
+    <div class="board-date">
+      投稿日時：<%= board.created_at %>
+    </div>
+    <div class="board-title">
+      <%= board.title %>
+    </div>
+  </div>
+<% end %>
